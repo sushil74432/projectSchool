@@ -1,0 +1,118 @@
+body{
+	/*background-image: url("../images/bg.jpg");*/
+	/*position: fixed;*/
+}
+
+.mascot{
+	position: absolute;
+    background-image: url(../images/nepalien.png);
+    width: 125px;
+    height: 344px;
+    background-size: cover;
+    z-index: 99999;
+    margin-left: 84%;
+    margin-top: 36%;
+
+}
+
+.overlay{
+	background: rgba(256,256,256,0.6);
+}
+
+.index-overlay{
+	/*height: 590px;*/
+    width: 1080px;
+    margin: 60px 0 0 133px;
+    border-radius: 30px;
+    position: relative;
+    padding-bottom: 10px;
+
+
+}
+
+.index-title{
+	background: 	rgba(98, 162, 16, 0.7);
+	width: 	100%;
+	text-align: center;
+	margin: 	30px 0 10px 0 ;
+	padding: 20px 0 10px 0;
+    border-radius: 30px;
+    font-size: 20px;
+    position: relative;
+}
+
+.index-chapters{
+	background:	rgba(98, 162, 16, 0.7);
+	border-radius: 10px;
+	width: 200px;
+	height: 150px;
+	margin: 30px;
+	display: inline-block;
+	word-wrap: break-word;
+	/*position: absolute;*/
+}
+
+.index-chapters:hover{
+	cursor: pointer;
+}
+
+.book-ico{
+	height:100px;
+	width:100px;
+	position: absolute;
+    margin: 10px 0 10px 48px;
+
+}
+
+.chapter-name{
+	/*position: absolute;*/
+    margin: 120px 0 10px 23px;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+/*-------------------------*/
+
+
+.question{
+	width: 95%;
+	background:	rgba(98, 162, 16, 0.7);
+	border-radius: 10px;
+	height: auto;
+	margin: 30px;
+	/*display: inline-block;*/
+    padding: 5px;
+
+}
+
+.question_text{
+	font-weight: 600;
+    font-size: 25px;
+    margin: 20px 0 0 30px;
+    text-align: left;
+}
+
+.answer{
+	width: 100%;
+	display: inline-block;
+}
+
+ .answer-images{
+ 	margin:20px 40px 5px 40px;
+ 	height: 100px;
+ 	width: 100px;
+ 	padding: 10px;
+
+ }
+ .answer-images:hover{
+	background: rgba(200,200,200,0.7);
+	cursor: pointer;
+}
+.check, .cross{
+		display: none;
+}
+.check:hover, .cross:hover{
+	background: rgba(200,200,200,0);
+	cursor: none;
+}
