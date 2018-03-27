@@ -1,5 +1,10 @@
 <?php 
     include_once("header.php");
+    $user_id=$this->session->userdata('user_id');
+    if(!$user_id){
+      redirect('user/login_view');
+    }
+    
     $query = $this->db->get('chapters');
     
  ?>
