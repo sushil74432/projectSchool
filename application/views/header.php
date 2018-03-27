@@ -18,18 +18,8 @@
     <body>
         <div class="container">
 
-            <header class="my-3">
-                <div class="row">
-                    <div class="col-sm-12 col-md-4 center-logo text-md-left">
-                        <img src=<?php echo base_url()."assets/images/cdc_logo.png"?> alt="CDC Logo" height="90px">
-                    </div>
-
-                    <div class="col-sm-12 col-md-4 text-center">
-                        <h1 class="mt-2">Website</h1>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4"></div>
-                </div>
+            <header class="py-3 header-content">
+                        <img class="px-3" src=<?php echo base_url()."assets/images/logo.png"?> alt="CDC Logo" height="90px">
             </header>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
