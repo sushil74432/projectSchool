@@ -1,4 +1,7 @@
-<?php $this->load->helper('url'); ?>
+<?php 
+$this->load->helper('url'); 
+$user_name=$this->session->userdata('user_name');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +13,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href=<?php echo base_url()."/assets/css/bootstrap.css"; ?>>
     <link rel="stylesheet" href=<?php echo base_url()."/assets/css/styles.css"; ?>>
+    <script src=<?php echo base_url()."assets/js/jquery.min.js"?>></script>
 
     <title>Lesson</title>
   </head>
@@ -33,8 +37,12 @@
                         <a class="nav-link" href=<?php echo base_url()."page/lessons"?>>Lessons</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href=<?php echo base_url()."page/test?chapter=0"?>>Test</a>
+                    </li> -->
+
+                    <li class="nav-item">
+                        <a class="nav-link text-right" href=<?php echo base_url()."user/user_logout"?>>Logout - <?php echo $user_name ?></a>
                     </li>
 
                     <!-- <li class="nav-item">

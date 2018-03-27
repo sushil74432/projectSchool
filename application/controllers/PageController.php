@@ -14,6 +14,10 @@
    		$this->load->view('lessons.php');	
    	}
 
+   	public function lesson(){
+   		$this->load->view('lesson.php');	
+   	}
+
    	public function test(){
    		$this->load->view('test.php');	
    	}

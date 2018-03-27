@@ -1,8 +1,25 @@
-<?php include_once("header.php"); ?>
+<?php 
+	include_once("header.php"); 
+	$user_region = $this->session->userdata('region');
+	if ($user_region == "pahad") {
+		$imageFile = "teacher-pahad.png";
+	} else if ($user_region == "himal") {
+		$imageFile = "teacher-himal.png";
+	}else if ($user_region == "terai") {
+		$imageFile = "teacher-terai.png";
+	} else{
+		$imageFile = "teacher-nepal.png";
+	}
+	$user_id=$this->session->userdata('user_id');
+    if(!$user_id){
+      redirect('user/login_view');
+    }
+
+?>
      
             <div class="content">
                 <div class="p-3">
-                    <img src=<?php echo base_url()."assets/images/swagat.png"?> alt="Teacher" class="img-fluid">
+                    <img src=<?php echo base_url()."assets/images/".$imageFile?> alt="Teacher" class="img-fluid">
                 </div>
 
                 <div class="text-center p-3">

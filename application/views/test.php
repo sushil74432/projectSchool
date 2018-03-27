@@ -18,20 +18,44 @@
                     <div class="test-block">
                         <p>'.$row->question.'</p>
 
-                        <form>
-                            <input type="radio" name="answer" value="Option 1"><span class="mr-5">Option 1</span>
-                            <input type="radio" name="answer" value="Option 2"><span class="mr-5">Option 2</span>
-                            <input type="radio" name="answer" value="Option 3"><span class="mr-5">Option 3</span>
-                            <input type="radio" name="answer" value="Option 4"><span class="mr-5">Option 4</span>
-                        </form>
+                        <form>';
+        $option_list = $row->answers;
+        $option_list_array = explode(",", $option_list);
+        foreach ($option_list_array as $option) {
+            $value = 0;
+            if($option == $row->correct_answer){
+                $value = 1;
+            }
+            echo '<input type="radio" name="answer" value="'.$value.'"><span class="mr-5">'.$option.'</span>';
+        }
+        echo                '</form>
                     </div>
                 </div>';
     }
-        echo' <div class="options mt-5">
-                <button type="button" class="btn btn-info btn-lg">View lesson</button>
-                <button type="button" class="btn btn-info btn-lg">View Marks</button>
+        echo'<div class = "result" id = "result"></div> 
+            <div class="options mt-5">
+                <button type="button" class="btn btn-info btn-lg" Onclick = "checkAnswer();">Get Result</button>
+                <a href = "'.base_url().'page/lesson?chapter='.$chapter.'"><button type="button" class="btn btn-info btn-lg">View lesson</button></a>
             </div>';
     ?>
 </div>
+
+<script type="text/javascript">
+    function checkAnswer(){
+        var total_correct_answer = 0;
+        var total_wrong_answer = 0;
+        $('.test-block').each(function(){
+            var answer = $(this).find('input[name="answer"]:checked').val();
+            if(answer == 1){
+                total_correct_answer += 1
+                $(this).css("background-color","#b0c4de");
+            } else {
+                total_wrong_answer += 1;
+                $(this).css("background-color","red");
+            }
+        });
+        $("#result").html("<p><b>Correct answers :"+total_correct_answer+"</b></p><p><b>Wrong answers :"+total_wrong_answer+"</b></p>");
+    }
+</script>
 
 <?php include_once("footer.php"); ?>
