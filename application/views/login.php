@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login-CI Login Registration</title>
+<?php include_once("header.php");?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/login.css'); ?>">
-  </head>
-  <body>
-
     <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -57,7 +50,4 @@
         </div>
     </div>
 </div>
-
-
-  </body>
-</html>
+<?php include_once("footer.php");?>

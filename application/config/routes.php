@@ -54,3 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['chapter'] = 'Chapter_controller';
 $route['chapter/chapter1'] = 'Chapter_controller/chapter1';
+$route['page'] = 'PageController'; 
+$route['page/lessons'] = 'PageController/lessons'; 
+$route['page/test'] = 'PageController/test'; 
+

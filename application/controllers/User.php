@@ -77,7 +77,9 @@ function login_user(){
         $this->session->set_userdata('region',$data['region']);
         //echo $_SESSION['region'];
         //$this->load->view('user_profile.php');
-        $this->load->view('chapter_list.php',$data);
+        //$this->load->view('chapter_list.php',$data);
+        $this->load->view('welcome_page.php',$data);
+
 
 
       }
