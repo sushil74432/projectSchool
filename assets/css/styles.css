@@ -19,3 +19,10 @@
 .header-content {
 	background-color: #0478A9;
 }
+
+.test {
+	text-align: right;
+	background-color: red;
+	float: right;
+	width: 80%;
+}

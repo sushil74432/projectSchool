@@ -18,7 +18,7 @@
 ?>
      
             <div class="content">
-                <div class="p-3">
+                <div class="p-3 text-center">
                     <img src=<?php echo base_url()."assets/images/".$imageFile?> alt="Teacher" class="img-fluid">
                 </div>
 
