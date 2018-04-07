@@ -13,6 +13,7 @@ $user_name=$this->session->userdata('user_name');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href=<?php echo base_url()."/assets/css/bootstrap.css"; ?>>
     <link rel="stylesheet" href=<?php echo base_url()."/assets/css/styles.css"; ?>>
+    <!-- <link rel="stylesheet" href=<?php echo base_url()."/assets/css/font-preeti.css"; ?>> -->
     <script src=<?php echo base_url()."assets/js/jquery.min.js"?>></script>
 
     <title>Lesson</title>

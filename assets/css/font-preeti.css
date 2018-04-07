@@ -1,0 +1,9 @@
+@font-face {
+	font-family: preeti;
+	src: url(../fonts/preeti.ttf);
+}
+
+body{
+	font-family: preeti, Helvetica, Arial, sans-serif;
+	font-size: 23px;
+}

@@ -12,7 +12,9 @@
 ?>
     <h2>Test title</h2>
     <?php 
-    foreach ($query->result() as $row){
+    $question = $query->result();
+    shuffle($question); //randomize the questions appearance
+    foreach ($question as $row){
         //echo $row->question;
         echo '  <div class="content p-3">
                     <div class="test-block">
@@ -21,6 +23,7 @@
                         <form>';
         $option_list = $row->answers;
         $option_list_array = explode(",", $option_list);
+        shuffle($option_list_array); //randomize the options
         foreach ($option_list_array as $option) {
             $value = 0;
             if($option == $row->correct_answer){

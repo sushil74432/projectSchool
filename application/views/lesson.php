@@ -4,10 +4,11 @@
                 <h2>Lesson title</h2>
 
                 <div class="embed-responsive embed-responsive-16by9">
-                    <video width="320" height="240" controls>
-                        <source src="movie.mp4" type="video/mp4">
+                    <!-- <video width="320" height="240" controls>
+                        <source src="https://www.youtube.com/watch?v=hzYjE0qJJTY" type="video/mp4">
                         Your browser does not support the video tag.
-                    </video>
+                    </video> -->
+                    <iframe width="320" height="240" src="https://www.youtube.com/embed/yAvPS6RsEBU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
 
                 <p class="lead">Short description about the video/lesson</p>
