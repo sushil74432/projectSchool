@@ -75,6 +75,7 @@ function login_user(){
         $this->session->set_userdata('user_age',$data['user_age']);
         $this->session->set_userdata('user_roll',$data['user_roll']);
         $this->session->set_userdata('region',$data['region']);
+        $this->session->set_userdata('is_admin',$data['is_admin']);
         //echo $_SESSION['region'];
         //$this->load->view('user_profile.php');
         //$this->load->view('chapter_list.php',$data);

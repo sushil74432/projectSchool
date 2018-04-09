@@ -1,6 +1,7 @@
 <?php 
 $this->load->helper('url'); 
 $user_name=$this->session->userdata('user_name');
+$is_admin=$this->session->userdata('is_admin');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +38,17 @@ $user_name=$this->session->userdata('user_name');
                     <li class="nav-item">
                         <a class="nav-link" href=<?php echo base_url()."page/lessons"?>>Lessons</a>
                     </li>
+                    <?php if ($is_admin){                        
+                    echo '<li class="nav-item">
+                        <a class="nav-link" href="'.base_url().'page/admin">Admin Options</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="'.base_url().'page/ae_users">Add/Edit Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="'.base_url().'page/ae_questions">Add/Edit Questions</a>
+                    </li>';
+                    } ?>
 
                     <!-- <li class="nav-item">
                         <a class="nav-link" href=<?php echo base_url()."page/test?chapter=0"?>>Test</a>

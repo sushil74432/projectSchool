@@ -57,5 +57,8 @@ $route['chapter/chapter1'] = 'Chapter_controller/chapter1';
 $route['page'] = 'PageController'; 
 $route['page/lessons'] = 'PageController/lessons';
 $route['page/lesson'] = 'PageController/lesson'; 
-$route['page/test'] = 'PageController/test'; 
+$route['page/test'] = 'PageController/test';
+$route['page/admin'] = 'PageController/admin';
+$route['page/ae_users'] = 'PageController/ae_users';
+$route['page/ae_questions'] = 'PageController/ae_questions';
 
