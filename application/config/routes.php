@@ -61,4 +61,5 @@ $route['page/test'] = 'PageController/test';
 $route['page/admin'] = 'PageController/admin';
 $route['page/ae_users'] = 'PageController/ae_users';
 $route['page/ae_questions'] = 'PageController/ae_questions';
+$route['ajax/ajax_ae_user'] = 'AjaxController/ajax_ae_user';
 

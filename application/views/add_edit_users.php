@@ -23,14 +23,17 @@
 	    		<th>Admin</th>
 	    		<th>Action</th>";
 	    foreach ($users as $user){
-	        echo '<tr>
-	        		<td>'.$user->user_name.'</td>
-	        		<td>'.$user->user_email.'</td>
-	        		<td>'.$user->user_age.'</td>
-	        		<td>'.$user->user_roll.'</td>
-	        		<td>'.$user->region.'</td>
-	        		<td>'.($user->is_admin?"Yes":"No").'</td>
-	        		<td><a href= "#" Onclick = edit_user('.$user->region.');>Edit</a></td>
+	        echo '<tr id = "tr-'.$user->user_id.'">
+	        		<td id = "td-'.$user->user_id.'-1">'.$user->user_name.'</td>
+	        		<td id = "td-'.$user->user_id.'-2">'.$user->user_email.'</td>
+	        		<td id = "td-'.$user->user_id.'-3">'.$user->user_age.'</td>
+	        		<td id = "td-'.$user->user_id.'-4">'.$user->user_roll.'</td>
+	        		<td id = "td-'.$user->user_id.'-5">'.$user->region.'</td>
+	        		<td id = "td-'.$user->user_id.'-6">'.($user->is_admin?"Yes":"No").'</td>
+	        		<td id = "td-'.$user->user_id.'-7">
+	        			<a href= "#" Onclick = "edit_user(\''.$user->user_id.'\',\''.$user->user_name.'\',\''.$user->user_email.'\',\''.$user->user_age.'\',\''.$user->user_roll.'\',\''.$user->region.'\',\''.$user->is_admin.'\')">Edit</a>
+	        			<a href= "#" Onclick = delete_user('.$user->user_name.',"'.$user->user_id.'","'.$user->user_email.'","'.$user->user_age.'","'.$user->user_roll.'","'.$user->region.'","'.$user->is_admin.'")>Delete</a>
+	        		</td>
 	        	  </tr>';
 	    }
 	    echo "</table>";
@@ -39,9 +42,50 @@
 </div>
 
 <script type="text/javascript">
-    function edit_user(){
-        
-    }
+	function edit_user(user_id, user_name, user_email, user_age, user_roll, region, is_admin){
+		var tr_id = "#tr-"+user_id;
+		var current_tr_html = $(tr_id).html();
+		//var new_tr_html = '<td id = "td-'+user_id+'-1"><input name = "input'+user_id+'-1" value="'+user_id+'">'+user_name+'</td><td id = "td-'+user_id+'-2">'+user_email+'</td><td id = "td-'+user_id+'-3">'+user_age+'</td><td id = "td-'+user_id+'-4">'+user_roll+'</td><td id = "td-'+user_id+'-5">'+region+'</td><td id = "td-'+user_id+'-6">'+(is_admin?"Yes":"No")+'</td>';
+
+		var new_tr_html = '<form id= "update-'+user_id+'" name = "update-'+user_id+'"><td id = "td-'+user_id+'-1"><input type="text" name="input-'+user_id+'-1" value ="'+user_id+'"></td><td id = "td-'+user_id+'-2"><input type="text" name="input-'+user_id+'-2" value ="'+user_name+'"></td><td id = "td-'+user_id+'-3"><input type="text" name="input-'+user_id+'-3" value ="'+user_email+'"></td><td id = "td-'+user_id+'-4"><input type="text" name="input-'+user_id+'-4" value ="'+user_roll+'"></td><td id = "td-'+user_id+'-5"><input type="text" name="input-'+user_id+'-5" value ="'+region+'"></td><td id = "td-'+user_id+'-6"><input type="text" name="input-'+user_id+'-6" value ="'+is_admin+'"></td></form><td id = "td-'+user_id+'-7"><a href="#" onclick="update()">Update</a></td>';
+		
+		$(tr_id).html(new_tr_html);
+		
+		console.log(current_tr_html);
+	}
+
+    function update_user(user_id){
+    	console.log(user_id);        
+		// Ajax post
+		$(document).ready(function() {
+			jQuery.ajax({
+			type: "POST",
+			url: "<?php echo base_url(); ?>" + "page/ajax_ae_user",
+			dataType: 'json',
+			data: {name: user_name, pwd: password},
+			success: function(res) {
+				if (res)
+				{
+					
+				}
+			}
+			});
+		});
+	}
+	function delete_user(){
+
+	}
 </script>
 
 <?php include_once("footer.php"); ?>
+
+
+<!-- <form name = "update'+user_id+'">
+<td id = "td-'+user_id+'-1"><input type="text" name="input-'+user_id+'-1" value ="'+user_id+'"></td>
+<td id = "td-'+user_id+'-2"><input type="text" name="input-'+user_id+'-2" value ="'+user_name+'"></td>
+<td id = "td-'+user_id+'-3"><input type="text" name="input-'+user_id+'-3" value ="'+user_email+'"></td>
+<td id = "td-'+user_id+'-4"><input type="text" name="input-'+user_id+'-4" value ="'+user_roll+'"></td>
+<td id = "td-'+user_id+'-5"><input type="text" name="input-'+user_id+'-5" value ="'+region+'"></td>
+<td id = "td-'+user_id+'-6"><input type="text" name="input-'+user_id+'-6" value ="'+is_admin+'"></td></form>
+<td id = "td-'+user_id+'-7"><a href="#" onclick="update()"></a></td>
+ -->

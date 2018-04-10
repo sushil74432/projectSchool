@@ -10,5 +10,16 @@
 			    return false;
 			}
 		}
+
+		public function get_user($user_id){
+			$this->db->select('*');
+  			$this->db->from('user');
+  			$this->db->where('user_id', $user_id);  
+			if($query=$this->db->get()){
+			    return $query->row_array();
+			}else{
+			    return false;
+			}	
+		}
 	}
  ?>
