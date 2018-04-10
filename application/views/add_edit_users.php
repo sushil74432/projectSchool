@@ -47,26 +47,35 @@
 		var current_tr_html = $(tr_id).html();
 		//var new_tr_html = '<td id = "td-'+user_id+'-1"><input name = "input'+user_id+'-1" value="'+user_id+'">'+user_name+'</td><td id = "td-'+user_id+'-2">'+user_email+'</td><td id = "td-'+user_id+'-3">'+user_age+'</td><td id = "td-'+user_id+'-4">'+user_roll+'</td><td id = "td-'+user_id+'-5">'+region+'</td><td id = "td-'+user_id+'-6">'+(is_admin?"Yes":"No")+'</td>';
 
-		var new_tr_html = '<form id= "update-'+user_id+'" name = "update-'+user_id+'"><td id = "td-'+user_id+'-1"><input type="text" name="input-'+user_id+'-1" value ="'+user_id+'"></td><td id = "td-'+user_id+'-2"><input type="text" name="input-'+user_id+'-2" value ="'+user_name+'"></td><td id = "td-'+user_id+'-3"><input type="text" name="input-'+user_id+'-3" value ="'+user_email+'"></td><td id = "td-'+user_id+'-4"><input type="text" name="input-'+user_id+'-4" value ="'+user_roll+'"></td><td id = "td-'+user_id+'-5"><input type="text" name="input-'+user_id+'-5" value ="'+region+'"></td><td id = "td-'+user_id+'-6"><input type="text" name="input-'+user_id+'-6" value ="'+is_admin+'"></td></form><td id = "td-'+user_id+'-7"><a href="#" onclick="update()">Update</a></td>';
+		var new_tr_html = '<td id = "td-'+user_id+'-1" style="display:none"><input type="hidden" name="input-'+user_id+'-1" value ="'+user_id+'"></td><td id = "td-'+user_id+'-2"><input type="text" name="input-'+user_id+'-2" value ="'+user_name+'"></td><td id = "td-'+user_id+'-3"><input type="text" name="input-'+user_id+'-3" value ="'+user_email+'"></td><td id = "td-'+user_id+'-3"><input type="text" name="input-'+user_id+'-3" value ="'+user_age+'"></td><td id = "td-'+user_id+'-4"><input type="text" name="input-'+user_id+'-4" value ="'+user_roll+'"></td><td id = "td-'+user_id+'-5"><input type="text" name="input-'+user_id+'-5" value ="'+region+'"></td><td id = "td-'+user_id+'-6"><input type="text" name="input-'+user_id+'-6" value ="'+is_admin+'"></td><td id = "td-'+user_id+'-7"><a href="#" onclick="update_user('+user_id+')">Update</a></td>';
 		
 		$(tr_id).html(new_tr_html);
 		
-		console.log(current_tr_html);
+		//console.log(current_tr_html);
 	}
 
     function update_user(user_id){
-    	console.log(user_id);        
+    	var update_value_keys = ["user_id", "user_name", "user_email", "user_age", "user_roll", "region", "is_admin"];
+    	var updated_values = {};
+    	var count = 0;
+    	$('#tr-'+user_id+'>td').closest('tr').find("input").each(function() {
+    		updated_values[update_value_keys[count]]=this.value;
+    		count++;
+    		//console.log(count);
+    	});
 		// Ajax post
 		$(document).ready(function() {
 			jQuery.ajax({
 			type: "POST",
-			url: "<?php echo base_url(); ?>" + "page/ajax_ae_user",
+			url: "<?php echo base_url(); ?>" + "ajax/ajax_ae_user",
 			dataType: 'json',
-			data: {name: user_name, pwd: password},
+			data: updated_values,
 			success: function(res) {
 				if (res)
 				{
-					
+					alert("Hurrayy");
+				} else {
+					alert("oh nooo");
 				}
 			}
 			});
@@ -80,12 +89,12 @@
 <?php include_once("footer.php"); ?>
 
 
-<!-- <form name = "update'+user_id+'">
-<td id = "td-'+user_id+'-1"><input type="text" name="input-'+user_id+'-1" value ="'+user_id+'"></td>
+ 
+<!-- <td id = "td-'+user_id+'-1" style="display:none"><input type="hidden" name="input-'+user_id+'-1" value ="'+user_id+'"></td>
 <td id = "td-'+user_id+'-2"><input type="text" name="input-'+user_id+'-2" value ="'+user_name+'"></td>
 <td id = "td-'+user_id+'-3"><input type="text" name="input-'+user_id+'-3" value ="'+user_email+'"></td>
+<td id = "td-'+user_id+'-3"><input type="text" name="input-'+user_id+'-3" value ="'+user_age+'"></td>
 <td id = "td-'+user_id+'-4"><input type="text" name="input-'+user_id+'-4" value ="'+user_roll+'"></td>
 <td id = "td-'+user_id+'-5"><input type="text" name="input-'+user_id+'-5" value ="'+region+'"></td>
-<td id = "td-'+user_id+'-6"><input type="text" name="input-'+user_id+'-6" value ="'+is_admin+'"></td></form>
-<td id = "td-'+user_id+'-7"><a href="#" onclick="update()"></a></td>
- -->
+<td id = "td-'+user_id+'-6"><input type="text" name="input-'+user_id+'-6" value ="'+is_admin+'"></td>
+<td id = "td-'+user_id+'-7"><a href="#" onclick="update_user('+user_id+')">Update</a></td> -->
