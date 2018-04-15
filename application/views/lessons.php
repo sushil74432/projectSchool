@@ -23,8 +23,8 @@
                               <div class="col-xs-8 col-md-8 col-lg-9">
                                 <h3><a href="'.base_url().'page/lesson?chapter='.$row->chapter_number.'">'.$row->chapter_name.'</a></h3>
                                 <p class="lead">'.$row->chapter_description.'</p>
-                                <p>Duration : '.$row->duration.'</p>
-                                <p><a href = "'.base_url().'page/test?chapter='.$row->chapter_number.'">Take Test</a></p>
+                                <!--  <p>Duration : '.$row->duration.'</p>-->
+                                <p><a class="btn btn-light" role="button" href = "'.base_url().'page/test?chapter='.$row->chapter_number.'">Take Test</a></p>
                                 </div>
                               </div>
                           </div>';

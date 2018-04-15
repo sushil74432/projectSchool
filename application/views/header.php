@@ -40,15 +40,17 @@ $is_admin=$this->session->userdata('is_admin');
                         <a class="nav-link" href=<?php echo base_url()."page/lessons"?>>Lessons</a>
                     </li>
                     <?php if ($is_admin){                        
-                    echo '<li class="nav-item">
-                        <a class="nav-link" href="'.base_url().'page/admin">Admin Options</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="'.base_url().'page/ae_users">Add/Edit Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="'.base_url().'page/ae_questions">Add/Edit Questions</a>
-                    </li>';
+                    echo '<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Admin Options
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="'.base_url().'page/ae_users">Edit Users</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="'.base_url().'page/ae_questions">Edit Questions</a>
+                                <a class="dropdown-item" href="'.base_url().'page/ae_questions">Edit Questions</a>
+                            </div>
+                        </li>';
                     } ?>
 
                     <!-- <li class="nav-item">
