@@ -71,9 +71,11 @@
                             if(answer == 1){
                                 total_correct_answer += 1
                                 $(this).css("background-color","#b0c4de");
+                                $(this).addClass("correct-answer");
                             } else {
                                 total_wrong_answer += 1;
                                 $(this).css("background-color","red");
+                                $(this).addClass("wrong-answer");
                             }
                         });
                         $("#result").html("<p><b>Correct answers :"+total_correct_answer+"</b></p><p><b>Wrong answers :"+total_wrong_answer+"</b></p>");
