@@ -73,9 +73,13 @@
 			success: function(res) {
 				if (res)
 				{
-					alert("Hurrayy");
+					$.toast({
+						text: "Updated Successfully",
+						bgColor : 'green'
+					});
+					//alert("Hurrayy");
 				} else {
-					alert("oh nooo");
+					//alert("oh nooo");
 				}
 			}
 			});

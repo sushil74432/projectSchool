@@ -62,4 +62,5 @@ $route['page/admin'] = 'PageController/admin';
 $route['page/ae_users'] = 'PageController/ae_users';
 $route['page/ae_questions'] = 'PageController/ae_questions';
 $route['ajax/ajax_ae_user'] = 'AjaxController/ajax_ae_user';
+$route['ajax/edit_questions'] = 'AjaxController/ajax_question_edit';
 
