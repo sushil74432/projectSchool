@@ -44,6 +44,29 @@ class AjaxController extends CI_Controller{
     	$option_image_var = "option-image-".$id;
     	$options_text_list = array();
 
+    	// Upload question images starts
+    	
+    	$this->load->helper('url');
+	    	$question_image_list = array();
+			$total = count($_FILES['question-image-'.$id]['name']);
+			$timestamp = round(microtime(true));
+			for($j=0; $j<$total; $j++) {
+			  $temp_file_path = $_FILES['question-image-'.$id]['tmp_name'][$j];
+			  if ($temp_file_path != ""){
+			  	$file_url = base_url()."uploads/".$timestamp."-".$_FILES['question-image-'.$id]['name'][$j];
+			  	array_push($question_image_list, $file_url);
+			    $new_file_path = "./uploads/".$timestamp.'-'.$_FILES['question-image-'.$id]['name'][$j];
+			    if(move_uploaded_file($temp_file_path, $new_file_path)) {
+			      //Handle other code here
+
+			    }
+			  }
+			}
+			$question_images = implode(',', $question_image_list);
+			var_dump($question_image_list);
+
+		// Upload question images ends
+
     	if($answer_type == "text"){
 	    	while($i<=4){
 	    		$opt = $this->input->post($option_text_var.'['.($i-1).']', TRUE);
@@ -82,6 +105,7 @@ class AjaxController extends CI_Controller{
 		var_dump($answers);
 		$data = array("sn"=>$id, 
 					"question"=>$question,
+					"question_images" =>$question_images,
 					"chapter" =>$this->input->post('chapter'),
 					"answers"=>$answers,
 					"correct_answer"=>$correct_answer, 
