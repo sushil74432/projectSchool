@@ -1,5 +1,7 @@
 .content {
-  background-color: #b0c4de; }
+  	background-color: #b0c4de; 
+	border-radius: 0.25rem;
+}
 
 .center-logo {
   text-align: center; }

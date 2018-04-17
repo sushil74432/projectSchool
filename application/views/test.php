@@ -16,8 +16,8 @@
     shuffle($question); //randomize the questions appearance
     foreach ($question as $row){
         //echo $row->question;
-        echo '  <div class="content p-3">
-                    <div class="test-block">
+        echo '  <div class="content">
+                    <div class="test-block alert" role="alert">
                         <p>'.$row->question.'</p>
 
                         <form>';
@@ -70,12 +70,12 @@
                             var answer = $(this).find('input[name="answer"]:checked').val();
                             if(answer == 1){
                                 total_correct_answer += 1
-                                $(this).css("background-color","#b0c4de");
-                                $(this).addClass("correct-answer");
+                                <!-- $(this).css("background-color","#b0c4de"); -->
+                                $(this).addClass("alert-success");
                             } else {
                                 total_wrong_answer += 1;
-                                $(this).css("background-color","red");
-                                $(this).addClass("wrong-answer");
+                                <!-- $(this).css("background-color","red"); -->
+                                $(this).addClass("alert-danger");
                             }
                         });
                         $("#result").html("<p><b>Correct answers :"+total_correct_answer+"</b></p><p><b>Wrong answers :"+total_wrong_answer+"</b></p>");
@@ -88,6 +88,28 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+                    function checkAnswer(){
+                        var total_correct_answer = 0;
+                        var total_wrong_answer = 0;
+                        $('.test-block').each(function(){
+                            var answer = $(this).find('input[name="answer"]:checked').val();
+                            if(answer == 1){
+                                total_correct_answer += 1
+                                <!-- $(this).css("background-color","#b0c4de"); -->
+                                $(this).addClass("alert-success");
+                            } else {
+                                total_wrong_answer += 1;
+                                <!-- $(this).css("background-color","red"); -->
+                                $(this).addClass("alert-danger");
+                            }
+                        });
+                        $("#result").html("<p><b>Correct answers :"+total_correct_answer+"</b></p><p><b>Wrong answers :"+total_wrong_answer+"</b></p>");
+                    }
+                </script>
+
+                
 
 
 <?php include_once("footer.php"); ?>
