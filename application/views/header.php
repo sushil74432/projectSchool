@@ -47,8 +47,8 @@ $is_admin=$this->session->userdata('is_admin');
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="'.base_url().'page/ae_users">Edit Users</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="'.base_url().'page/ae_questions">Edit Questions</a>
-                                <a class="dropdown-item" href="'.base_url().'page/ae_questions">Edit Questions</a>
+                                <a class="dropdown-item" href="'.base_url().'page/add_questions">Add Questions</a>
+                                <a class="dropdown-item" href="'.base_url().'page/ae_questions?chapter=1">Edit Questions</a>
                             </div>
                         </li>';
                     } ?>

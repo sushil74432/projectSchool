@@ -26,5 +26,9 @@
 
 			// return $this->db->replace('user', $data);
 		}
+
+		public function add_question($data){
+			return $this->db->insert("test_details",$data);
+		}
 	}
  ?>

@@ -13,7 +13,11 @@
     
     $query = $this->db->get_where('test_details',array('chapter'=>$chapter));    
 ?>
-<h2>Modify Questions</h2>
+<h2>Modify Questions</h2><hr>
+    <b>Select Chapter : </b>
+    <select name="chapter" id="chapter" class="chapter" onChange="selectChapter();">
+        <?php echo $select ?>
+    </select><hr>
     <?php 
     $question = $query->result();
     foreach ($question as $row){
@@ -35,7 +39,7 @@
     		$display_image_options = "style='display:block'";
     	}
         //echo $row->question;
-    ?>
+    ?>  
         <div class="content p-3 question-<?php echo $question_id ?>">
             <div class="test-block">
                 <p><?php echo $row->question?></p>
@@ -96,6 +100,7 @@
 </div>
 
 <script type="text/javascript">
+    $(".chapter").val('<?php echo $chapter ?>');
     function makeEditable(id){
         var editableQuestionDiv = ".editable-"+id;
         var questionDiv = ".question-"+id;
@@ -121,7 +126,11 @@
         	$(imageOptionListClass).css("display", "block");
     	}
     }
-   	
+    var selectChapter = function(){
+        var chapter = $(".chapter").val();
+        var url = "<?php echo base_url() ?>page/ae_questions?chapter="+chapter;
+        location.replace(url);
+    }
     var submitButton= function(id){
     	//console.log(id);
 	    $('#form-'+id).ajaxForm(function() { 

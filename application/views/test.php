@@ -97,11 +97,13 @@
                             var answer = $(this).find('input[name="answer"]:checked').val();
                             if(answer == 1){
                                 total_correct_answer += 1
-                                <!-- $(this).css("background-color","#b0c4de"); -->
+                                // $(this).css("background-color","#b0c4de");
+                                $(this).removeClass("alert-danger");
                                 $(this).addClass("alert-success");
                             } else {
                                 total_wrong_answer += 1;
-                                <!-- $(this).css("background-color","red"); -->
+                                // $(this).css("background-color","red");
+                                $(this).removeClass("alert-success");
                                 $(this).addClass("alert-danger");
                             }
                         });

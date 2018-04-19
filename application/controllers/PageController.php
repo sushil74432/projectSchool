@@ -5,6 +5,7 @@
 	{
 	    parent::__construct();
       $this->load->model('add_edit_users_model');
+      $this->load->model('add_edit_questions_model');
 	}
    	
    	public function index() { 
@@ -29,7 +30,26 @@
       $this->load->view('add_edit_users.php');  
     }
     public function ae_questions(){
-      $this->load->view('add_edit_questions.php');  
+      $data = $this->add_edit_questions_model->get_chapters();
+      $select_string = "";
+      if($data != "" || $data != NULL){
+        foreach ($data as $chapter) {
+            $select_string .= "<option value='".$chapter->chapter_number."'>".$chapter->chapter_name."</option>";
+        }
+      }
+      $select["select"] = $select_string;
+      $this->load->view('add_edit_questions.php',$select); 
+    }
+    public function add_questions(){
+      $data = $this->add_edit_questions_model->get_chapters();
+      $select_string = "";
+      if($data != "" || $data != NULL){
+        foreach ($data as $chapter) {
+            $select_string .= "<option value='".$chapter->chapter_number."'>".$chapter->chapter_name."</option>";
+        }
+      }
+      $select["select"] = $select_string;
+      $this->load->view('add_questions.php',$select);
     }
 
 

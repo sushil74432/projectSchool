@@ -121,6 +121,66 @@ class AjaxController extends CI_Controller{
 		    	
     }
 
+    public function ajax_question_add(){
+    	$question = $this->input->post('question', TRUE);
+
+    	// Upload question logic starts here
+    	$this->load->helper('url');
+    	$question_image_list = array();
+		$total = count($_FILES['question-image']['name']);
+		$timestamp = round(microtime(true));
+		for($j=0; $j<$total; $j++) {
+		  $temp_file_path = $_FILES['question-image']['tmp_name'][$j];
+		  if ($temp_file_path != ""){
+		  	$file_url = base_url()."uploads/".$timestamp."-".$_FILES['question-image']['name'][$j];
+		  	array_push($question_image_list, $file_url);
+		    $new_file_path = "./uploads/".$timestamp.'-'.$_FILES['question-image']['name'][$j];
+		    move_uploaded_file($temp_file_path, $new_file_path);
+		  }
+		}
+		$question_images = implode(',', $question_image_list);
+		// Upload question logic ends here
+		
+		$answer_type = $this->input->post('answer-type', TRUE);    	
+    	if ($answer_type == 't') {    		
+	    	$option_1 = $this->input->post('text-option-1', TRUE);
+	    	$option_2 = $this->input->post('text-option-2', TRUE);
+	    	$option_3 = $this->input->post('text-option-3', TRUE);
+	    	$option_4 = $this->input->post('text-option-4', TRUE);
+	    	$answers = $option_1.",".$option_2.",".$option_3.",".$option_4;
+	    	$correct_answer = $this->input->post('corerct-answer-text', TRUE);
+    	} else if($answer_type == 'i'){
+    		$this->load->helper('url');
+	    	$options_image_list = array();
+			$total = count($_FILES['option-image']['name']);
+			$timestamp = round(microtime(true));
+			for($j=0; $j<$total; $j++) {
+			  $temp_file_path = $_FILES['option-image']['tmp_name'][$j];
+			  if ($temp_file_path != ""){
+			  	$file_url = base_url()."uploads/".$timestamp."-".$_FILES['option-image']['name'][$j];
+			  	array_push($options_image_list, $file_url);
+			    $new_file_path = "./uploads/".$timestamp.'-'.$_FILES['option-image']['name'][$j];
+			    move_uploaded_file($temp_file_path, $new_file_path);
+			  }
+			}
+			$answers = implode(',', $options_image_list);
+			$correct_answer_image = base_url()."uploads/".$timestamp."-".$_FILES['correct-answer-image']['name'];
+			$correct_answer = $correct_answer_image;
+    	}
+    	$data = array("sn"=>NULL, 
+					"question"=>$question,
+					"question_images" =>$question_images,
+					"chapter" =>$this->input->post('chapter',TRUE),
+					"answers"=>$answers,
+					"correct_answer"=>$correct_answer, 
+					"answer_type"=>$answer_type, 
+				);
+		$update_question = $this->Ajax_model->add_question($data);
+		$this->session->set_flashdata('message', 'Updated Successfully');
+		echo $update_question;
+
+    }
+
 }
  ?>
 
