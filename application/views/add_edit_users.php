@@ -14,7 +14,7 @@
     $users = $this->add_edit_users_model->get_users();
     //var_dump($users);
     if($users){
-	    echo "<table>
+	    echo "<table class='table'>
 	    		<th>User Name</th>
 	    		<th>Email</th>
 	    		<th>Age</th>
