@@ -33,16 +33,16 @@ $is_admin=$this->session->userdata('is_admin');
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href=<?php echo base_url()."page"?>>Home</a>
+                        <a class="nav-link" href=<?php echo base_url()."page"?>>गृहपृष्ठ</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=<?php echo base_url()."page/lessons"?>>Lessons</a>
+                        <a class="nav-link" href=<?php echo base_url()."page/lessons"?>>पाठहरु </a>
                     </li>
                     <?php if ($is_admin){                        
                     echo '<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Admin Options
+                                एड्मिनिस्टे्टर
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="'.base_url().'page/ae_users">Edit Users</a>
@@ -60,7 +60,7 @@ $is_admin=$this->session->userdata('is_admin');
                 
                 <ul class="navbar-nav">
                     <li class="nav-item justify-content-end">
-                        <a class="nav-link" href=<?php echo base_url()."user/user_logout"?>>Logout - <?php echo $user_name ?></a>
+                        <a class="nav-link" href=<?php echo base_url()."user/user_logout"?>>लगआउट- <?php echo $user_name ?></a>
                     </li>
 
                     <!-- <li class="nav-item">

@@ -10,7 +10,6 @@
     
     $query = $this->db->get_where('test_details',array('chapter'=>$chapter));    
 ?>
-    <h2>Test title</h2>
     <?php 
     $question = $query->result();
     $answer_type = "";
@@ -50,8 +49,8 @@
     }
         echo'<div class = "result" id = "result"></div> 
             <div class="options mt-5">
-                <button type="button" class="btn btn-info btn-lg" Onclick = "checkAnswer();">Get Result</button>
-                <a href = "'.base_url().'page/lesson?chapter='.$chapter.'"><button type="button" class="btn btn-info btn-lg">View lesson</button></a>
+                <button type="button" class="btn btn-info btn-lg" Onclick = "checkAnswer();">नतिजा हेर्नुहोस</button>
+                <a href = "'.base_url().'page/lesson?chapter='.$chapter.'"><button type="button" class="btn btn-info btn-lg">पाठ हेर्नुहोस</button></a>
             </div>';
     ?>
 </div>

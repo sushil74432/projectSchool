@@ -32,7 +32,7 @@
 	        		<td id = "td-'.$user->user_id.'-6">'.($user->is_admin?"Yes":"No").'</td>
 	        		<td id = "td-'.$user->user_id.'-7">
 	        			<a href= "#" Onclick = "edit_user(\''.$user->user_id.'\',\''.$user->user_name.'\',\''.$user->user_email.'\',\''.$user->user_age.'\',\''.$user->user_roll.'\',\''.$user->region.'\',\''.$user->is_admin.'\')">Edit</a>
-	        			<a href= "#" Onclick = delete_user('.$user->user_name.',"'.$user->user_id.'","'.$user->user_email.'","'.$user->user_age.'","'.$user->user_roll.'","'.$user->region.'","'.$user->is_admin.'")>Delete</a>
+	        			<a href= "#" Onclick = delete_user("'.$user->user_id.'");>Delete</a>
 	        		</td>
 	        	  </tr>';
 	    }
@@ -85,7 +85,27 @@
 			});
 		});
 	}
-	function delete_user(){
+	function delete_user(id){
+		var id = {'id':id};
+		$(document).ready(function() {
+			jQuery.ajax({
+			type: "POST",
+			url: "<?php echo base_url(); ?>" + "ajax/ajax_delete_user",
+			dataType: "json",
+			data: id,
+			success: function(res) {
+				if (res){
+					$.toast({
+						text: "Deleted Successfully",
+						bgColor : 'green'
+					});
+					//alert("Hurrayy");
+				} else {
+					//alert("oh nooo");
+				}
+			}
+			});
+		});
 
 	}
 </script>

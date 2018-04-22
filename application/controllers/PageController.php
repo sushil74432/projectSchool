@@ -17,7 +17,8 @@
    	}
 
    	public function lesson(){
-   		$this->load->view('lesson.php');	
+      $chapter= $this->input->get('chapter');
+      $this->load->view('lesson.php');	
    	}
 
    	public function test(){

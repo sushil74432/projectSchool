@@ -11,6 +11,17 @@
 				return false;
 			}
 		}
+		public function get_lesson_video_url($chapter){
+			$this->db->select('*');
+			$this->db->from('chapters');
+			$this->db->where('chapter_number',$chapter);
+			if($query=$this->db->get()){
+				return $query->row_array();
+			}
+			else {
+				return false;
+			}
+		}
 	}
 
 ?>

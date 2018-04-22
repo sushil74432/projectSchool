@@ -114,7 +114,26 @@
         $(questionDiv).css("display", "block");
     }
     function deleteItem(id){
-        
+        console.log("Delete Item Called");
+        var id = {'id':id};
+        $(document).ready(function() {
+            jQuery.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>" + "ajax/ajax_delete_question",
+            dataType: "json",
+            data: id,
+            success: function(res) {
+                console.log(res);
+                if (res){
+
+                    $.toast({
+                        text: "Updated Successfully",
+                        bgColor : 'green'
+                    });
+                } 
+            }
+            });
+        });
     }
     function adjustOptionType(sel){
     	var id = sel.dataset.questionId;

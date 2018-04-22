@@ -180,6 +180,18 @@ class AjaxController extends CI_Controller{
 		echo $update_question;
 
     }
+    public function ajax_user_delete(){
+    	$id = $this->input->post('id', TRUE);
+    	var_dump($id);
+    	$data = array("id"=>$id);
+    	$delete_user = $this->Ajax_model->delete_user($data);
+    }
+    public function ajax_question_delete(){
+    	$id = $this->input->post('id', TRUE);
+    	var_dump($id);
+    	$data = array("id"=>$id);
+    	$delete_question = $this->Ajax_model->delete_question($data);
+    }
 
 }
  ?>
