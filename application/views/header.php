@@ -33,11 +33,11 @@ $is_admin=$this->session->userdata('is_admin');
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href=<?php echo base_url()."page"?>>Home</a>
+                        <a class="nav-link" href=<?php echo base_url()."page"?>>गृह पृष्ठ</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href=<?php echo base_url()."page/lessons"?>>Lessons</a>
+                        <a class="nav-link" href=<?php echo base_url()."page/lessons"?>>पाठहरू</a>
                     </li>
                     <?php if ($is_admin){                        
                     echo '<li class="nav-item dropdown">
