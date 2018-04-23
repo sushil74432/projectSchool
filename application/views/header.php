@@ -41,7 +41,7 @@ $is_admin=$this->session->userdata('is_admin');
                     <?php if ($is_admin){                        
                     echo '<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                एड्मिनिस्टे्टर
+                                एड्मिनिस्ट्रेटर
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="'.base_url().'page/ae_users">Edit Users</a>
