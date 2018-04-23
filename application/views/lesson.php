@@ -2,11 +2,12 @@
     include_once("header.php");
     $chapter= $this->input->get('chapter');
     $data = $this->add_edit_questions_model->get_lesson_video_url($chapter);
+    $lesson_title=  $data['chapter_name'];
     $video_url = $data['video_url'];
  ?>
      
             <div class="content p-3">
-                <h2>Lesson title</h2>
+                <h2><?php echo $lesson_title ?></h2>
 
                 <div class="embed-responsive embed-responsive-16by9">
                     <!-- <video width="320" height="240" controls>

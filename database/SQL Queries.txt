@@ -2,3 +2,4 @@ ALTER TABLE `user` ADD `is_admin` BOOLEAN NOT NULL DEFAULT FALSE ;
 
 ALTER TABLE `chapters` ADD `video_url` VARCHAR(256) NOT NULL AFTER `chapter_description`;
 
+ALTER TABLE `test_details` ADD `question_images` TEXT NULL AFTER `question`;
