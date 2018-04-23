@@ -8,21 +8,28 @@
 			// return $this->db->replace('user', $data);
 		}
 		public function update_question($data){
+			foreach ($data as $key => $value) {
+				if ($data[$key] == "" || $data[$key] == NULL) {
+					unset($data[$key]);
+				}
+			}
+			$this->db->where('sn', $data['sn']);
+            $this->db->update('test_details', $data);
 
-			if($data['correct_answer'] != "" || $data['answers'] != ""){
-				$this->db->set("sn","question","question_images","chapter","answers","correct_answer","answer_type");
-				$this->db->where('sn',$data['sn']);
-				return $this->db->update('test_details',$data);
-			} else if($data['correct_answer'] == ""){
-				$this->db->set("sn","question","question_images","chapter","answers","answer_type");
-				$this->db->where('sn',$data['sn']);
-				return $this->db->update('test_details',$data);
-			}
-			else if($data['answers'] == ""){
-				$this->db->set("sn","question","question_images","chapter","correct_answer","answer_type");
-				$this->db->where('sn',$data['sn']);
-				return $this->db->update('test_details',$data);
-			}
+			// if($data['correct_answer'] != "" || $data['answers'] != ""){
+			// 	$this->db->set("sn","question","question_images","chapter","answers","correct_answer","answer_type");
+			// 	$this->db->where('sn',$data['sn']);
+			// 	return $this->db->update('test_details',$data);
+			// } else if($data['correct_answer'] == ""){
+			// 	$this->db->set("sn","question","question_images","chapter","answers","answer_type");
+			// 	$this->db->where('sn',$data['sn']);
+			// 	return $this->db->update('test_details',$data);
+			// }
+			// else if($data['answers'] == ""){
+			// 	$this->db->set("sn","question","question_images","chapter","correct_answer","answer_type");
+			// 	$this->db->where('sn',$data['sn']);
+			// 	return $this->db->update('test_details',$data);
+			// }
 
 			// return $this->db->replace('user', $data);
 		}

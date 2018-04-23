@@ -31,8 +31,8 @@
 	        		<td id = "td-'.$user->user_id.'-5">'.$user->region.'</td>
 	        		<td id = "td-'.$user->user_id.'-6">'.($user->is_admin?"Yes":"No").'</td>
 	        		<td id = "td-'.$user->user_id.'-7">
-	        			<a href= "#" Onclick = "edit_user(\''.$user->user_id.'\',\''.$user->user_name.'\',\''.$user->user_email.'\',\''.$user->user_age.'\',\''.$user->user_roll.'\',\''.$user->region.'\',\''.$user->is_admin.'\')">Edit</a>
-	        			<a href= "#" Onclick = delete_user("'.$user->user_id.'");>Delete</a>
+	        			<button class="btn btn-success" Onclick = "edit_user(\''.$user->user_id.'\',\''.$user->user_name.'\',\''.$user->user_email.'\',\''.$user->user_age.'\',\''.$user->user_roll.'\',\''.$user->region.'\',\''.$user->is_admin.'\')">Edit</button>
+	        			<button class="btn btn-danger" Onclick = delete_user("'.$user->user_id.'");>Delete</button>
 	        		</td>
 	        	  </tr>';
 	    }
@@ -86,6 +86,7 @@
 		});
 	}
 	function delete_user(id){
+		var uid = id;
 		var id = {'id':id};
 		$(document).ready(function() {
 			jQuery.ajax({
@@ -99,9 +100,7 @@
 						text: "Deleted Successfully",
 						bgColor : 'green'
 					});
-					//alert("Hurrayy");
-				} else {
-					//alert("oh nooo");
+					$("#tr-"+uid).hide();
 				}
 			}
 			});

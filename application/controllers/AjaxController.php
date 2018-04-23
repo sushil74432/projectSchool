@@ -48,7 +48,10 @@ class AjaxController extends CI_Controller{
     	
     	$this->load->helper('url');
 	    	$question_image_list = array();
-			$total = count($_FILES['question-image-'.$id]['name']);
+	    	$total = 0;
+	    	if(isset($_FILES['question-image-'.$id]['name'])){
+				$total = count($_FILES['question-image-'.$id]['name']);
+			}
 			$timestamp = round(microtime(true));
 			for($j=0; $j<$total; $j++) {
 			  $temp_file_path = $_FILES['question-image-'.$id]['tmp_name'][$j];
@@ -63,26 +66,29 @@ class AjaxController extends CI_Controller{
 			  }
 			}
 			$question_images = implode(',', $question_image_list);
-			var_dump($question_image_list);
+			//var_dump($question_image_list);
 
 		// Upload question images ends
 
     	if($answer_type == "text"){
 	    	while($i<=4){
-	    		$opt = $this->input->post($option_text_var.'['.($i-1).']', TRUE);
+	    		$opt = trim($this->input->post($option_text_var.'['.($i-1).']', TRUE));
 	    		array_push($options_text_list, $opt);
 	    		$i++;
 	    	}
 	    	// var_dump($options_text_list);
 	    	$answers = implode(',', $options_text_list);
-	    	$correct_answer_text = $this->input->post('correct-answer-text-'.$id, TRUE);
+	    	$correct_answer_text = trim($this->input->post('correct-answer-text-'.$id, TRUE));
 	    	$correct_answer = $correct_answer_text;
-	    	var_dump($correct_answer_text);
+	    	//var_dump($correct_answer_text);
 	    }
     	if($answer_type == "image"){
 	    	$this->load->helper('url');
 	    	$options_image_list = array();
-			$total = count($_FILES['option-image-'.$id]['name']);
+	    	$total = 0;
+	    	if (isset($_FILES['option-image-'.$id]['name'])) {
+	    		$total = count($_FILES['option-image-'.$id]['name']);
+	    	}
 			$timestamp = round(microtime(true));
 			for($j=0; $j<$total; $j++) {
 			  $temp_file_path = $_FILES['option-image-'.$id]['tmp_name'][$j];
@@ -97,10 +103,13 @@ class AjaxController extends CI_Controller{
 			  }
 			}
 			$answers = implode(',', $options_image_list);
-			$correct_answer_image = base_url()."uploads/".$timestamp."-".$_FILES['correct-answer-image-'.$id]['name'];
+			$correct_answer_image ="";
+			if (isset($_FILES['correct-answer-image-'.$id]['name'])) {
+				$correct_answer_image = base_url()."uploads/".$timestamp."-".$_FILES['correct-answer-image-'.$id]['name'];
+			}
 			$correct_answer = $correct_answer_image;
-			var_dump($options_image_list);
-			var_dump($correct_answer_image);
+			//var_dump($options_image_list);
+			//var_dump($correct_answer_image);
 		}
 		var_dump($answers);
 		$data = array("sn"=>$id, 
@@ -182,15 +191,17 @@ class AjaxController extends CI_Controller{
     }
     public function ajax_user_delete(){
     	$id = $this->input->post('id', TRUE);
-    	var_dump($id);
+    	//var_dump($id);
     	$data = array("id"=>$id);
     	$delete_user = $this->Ajax_model->delete_user($data);
+    	echo $delete_user;
     }
     public function ajax_question_delete(){
     	$id = $this->input->post('id', TRUE);
-    	var_dump($id);
+    	//var_dump($id);
     	$data = array("id"=>$id);
     	$delete_question = $this->Ajax_model->delete_question($data);
+    	echo $delete_question;
     }
 
 }

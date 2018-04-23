@@ -114,7 +114,7 @@
         $(questionDiv).css("display", "block");
     }
     function deleteItem(id){
-        console.log("Delete Item Called");
+        var qid = id;
         var id = {'id':id};
         $(document).ready(function() {
             jQuery.ajax({
@@ -123,15 +123,14 @@
             dataType: "json",
             data: id,
             success: function(res) {
-                console.log(res);
-                if (res){
-
-                    $.toast({
-                        text: "Updated Successfully",
-                        bgColor : 'green'
-                    });
-                } 
-            }
+                    if (res){
+                        $.toast({
+                            text: "Deleted Successfully",
+                            bgColor : 'green'
+                        });
+                        $(".question-"+qid).hide();
+                    } 
+                }
             });
         });
     }
