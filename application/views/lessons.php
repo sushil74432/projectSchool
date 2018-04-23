@@ -9,7 +9,6 @@
     
  ?>
      
-            <h2>Lessons/Topics</h2>
 
 
                 

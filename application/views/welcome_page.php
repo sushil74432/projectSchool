@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="text-center p-3">
-                    <a href="<?php echo base_url().'page/lessons'?>"><button type="button" class="btn btn-primary btn-lg mx-3">Take a lesson</button></a>
+                    <a href="<?php echo base_url().'page/lessons'?>"><button type="button" class="btn btn-primary btn-lg mx-3">पाठ पढ्नुहोस</button></a>
                     <!-- <button type="button" class="btn btn-secondary btn-lg mx-3">Take a test</button> -->
                 </div>
             </div>

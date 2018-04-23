@@ -44,8 +44,8 @@
             <div class="test-block">
                 <p><?php echo $row->question?></p>
 
-                <a href = "#" onclick="makeEditable(<?php echo $question_id?>)">Edit</a>&nbsp;&nbsp;&nbsp;
-                <a href = "#">Delete</a>
+                <button class = "btn btn-success" onclick="makeEditable(<?php echo $question_id?>)">Edit</button>&nbsp;&nbsp;&nbsp;
+                <button class = "btn btn-danger" onClick = "deleteItem(<?php echo $question_id?>)">Delete</a>
             </div>
         </div>
        <div style="display:none" class="content p-3 editable editable-<?php echo $question_id ?>" id ="editable-<?php echo $question_id ?>">
@@ -112,6 +112,28 @@
         var questionDiv = ".question-"+id;
         $(editableQuestionDiv).css("display", "none");
         $(questionDiv).css("display", "block");
+    }
+    function deleteItem(id){
+        console.log("Delete Item Called");
+        var id = {'id':id};
+        $(document).ready(function() {
+            jQuery.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>" + "ajax/ajax_delete_question",
+            dataType: "json",
+            data: id,
+            success: function(res) {
+                console.log(res);
+                if (res){
+
+                    $.toast({
+                        text: "Updated Successfully",
+                        bgColor : 'green'
+                    });
+                } 
+            }
+            });
+        });
     }
     function adjustOptionType(sel){
     	var id = sel.dataset.questionId;

@@ -30,5 +30,17 @@
 		public function add_question($data){
 			return $this->db->insert("test_details",$data);
 		}
+
+		public function delete_question($data){
+			$this->db->where('sn', $data['id']);
+			$this->db->delete('test_details');
+			return 1;
+		}
+
+		public function delete_user($data){
+			$this->db->where('user_id', $data['id']);
+			$this->db->delete('user');
+			return 1;
+		}
 	}
  ?>

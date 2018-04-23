@@ -65,4 +65,5 @@ $route['page/add_questions'] = 'PageController/add_questions';
 $route['ajax/ajax_ae_user'] = 'AjaxController/ajax_ae_user';
 $route['ajax/edit_questions'] = 'AjaxController/ajax_question_edit';
 $route['ajax/add_questions'] = 'AjaxController/ajax_question_add';
-
+$route['ajax/ajax_delete_user'] = 'AjaxController/ajax_user_delete';
+$route['ajax/ajax_delete_question'] = 'AjaxController/ajax_question_delete';
