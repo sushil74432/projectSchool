@@ -7,9 +7,13 @@
 
     if($_GET['chapter'] != "undefined")
     $chapter = $_GET['chapter'];
-    
+
+    $data = $this->add_edit_questions_model->get_lesson_video_url($chapter);
+    $lesson_title = $data['chapter_name'];
+
     $query = $this->db->get_where('test_details',array('chapter'=>$chapter));    
 ?>
+<h1><?php echo $lesson_title ?></h1>
     <?php 
     $question = $query->result();
     $answer_type = "";
