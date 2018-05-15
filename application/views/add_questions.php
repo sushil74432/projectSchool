@@ -20,7 +20,7 @@
             </div><hr>
             <div>
                 <b>Question:</b><br/> 
-                <textarea type="text" name="question" id="question" class="question" rows="3" cols="120" required> </textarea></div><br/>
+                <textarea type="text" name="question" id="question" class="question question-field" rows="3" cols="120" required> </textarea></div><br/>
             <div>
                 <b>Question Image: </b>
                 <input type="file" name="question-image[]" id="question-image" multiple>

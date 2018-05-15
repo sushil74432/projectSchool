@@ -1,8 +1,4 @@
-<footer class="text-center p-3">
-                <a href="#">Quick Links</a> |
-                <a href="#">About</a> |
-                <a href="#">Copyright</a>
-            </footer>
+<footer class="text-center p-3">Copyright &copy; 2018</footer>
 
         </div>
 
