@@ -34,7 +34,7 @@
         echo '<form>';
         $answer_type = $row->answer_type;                        
         $option_list = $row->answers;
-        $option_list_array = explode(",", $option_list);
+        $option_list_array = explode(";;;", $option_list);
         shuffle($option_list_array); //randomize the options
         foreach ($option_list_array as $option) {
             $value = 0;

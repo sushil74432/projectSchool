@@ -147,7 +147,7 @@ class AjaxController extends CI_Controller{
 		    move_uploaded_file($temp_file_path, $new_file_path);
 		  }
 		}
-		$question_images = implode(',', $question_image_list);
+		$question_images = implode(';;;', $question_image_list);
 		// Upload question logic ends here
 		
 		$answer_type = $this->input->post('answer-type', TRUE);    	
