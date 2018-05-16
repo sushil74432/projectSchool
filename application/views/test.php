@@ -24,11 +24,11 @@
         $question_images_array = explode(",", $question_images);
         //echo $row->question;
         echo '  <div class="content">
-                    <div class="test-block alert" role="alert">
-                        <p>'.$row->question.'</p>';
+                    <div class="test-block alert ml-3" role="alert">
+                        <p class="lead">'.$row->question.'</p>';
                         if($question_images !="" || $question_images != NULL){
                             foreach ($question_images_array as $image) {
-                                echo "<span><img src=".$image."></span>";
+                                echo "<span><img class='img-thumbnail' src=".$image."></span>";
                             }
                         }
         echo '<form>';
