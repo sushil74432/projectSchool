@@ -19,7 +19,7 @@
      
             <div class="content">
                 <div class="text-center">
-                    <img src=<?php echo base_url()."assets/images/".$imageFile?> alt="Teacher" class="img-fluid">
+                    <!-- <img src=<?php echo base_url()."assets/images/".$imageFile?> alt="Teacher" class="img-fluid"> -->
 
                     <video autoplay muted id="intoAnim" width="100%">
                     	<source src="assets/videos/intro_animation.mp4" type="video/mp4">
