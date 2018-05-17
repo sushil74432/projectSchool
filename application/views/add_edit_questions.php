@@ -65,7 +65,7 @@
 	                        </p>
 	                            <p class= "option-list option-list-text option-list-text-<?php echo $question_id?>" <?php echo $display_text_options ?>><b>Enter Options:&nbsp;&nbsp;&nbsp;</b>
 			                        <?php 
-								        $option_list_array = explode(",", $option_list);
+								        $option_list_array = explode(";;;", $option_list);
 								        foreach ($option_list_array as $key=>$option) {
 								            $key += 1;
 								            $value = 0;

@@ -21,7 +21,7 @@
     shuffle($question); //randomize the questions appearance
     foreach ($question as $row){
         $question_images = $row->question_images;
-        $question_images_array = explode(",", $question_images);
+        $question_images_array = explode(";;;", $question_images);
         //echo $row->question;
         echo '  <div class="content">
                     <div class="test-block alert" role="alert">

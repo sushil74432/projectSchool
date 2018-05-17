@@ -156,7 +156,7 @@ class AjaxController extends CI_Controller{
 	    	$option_2 = $this->input->post('text-option-2', TRUE);
 	    	$option_3 = $this->input->post('text-option-3', TRUE);
 	    	$option_4 = $this->input->post('text-option-4', TRUE);
-	    	$answers = $option_1.",".$option_2.",".$option_3.",".$option_4;
+	    	$answers = $option_1.";;;".$option_2.";;;".$option_3.";;;".$option_4;
 	    	$correct_answer = $this->input->post('corerct-answer-text', TRUE);
     	} else if($answer_type == 'i'){
     		$this->load->helper('url');
@@ -172,7 +172,7 @@ class AjaxController extends CI_Controller{
 			    move_uploaded_file($temp_file_path, $new_file_path);
 			  }
 			}
-			$answers = implode(',', $options_image_list);
+			$answers = implode(';;;', $options_image_list);
 			$correct_answer_image = base_url()."uploads/".$timestamp."-".$_FILES['correct-answer-image']['name'];
 			$correct_answer = $correct_answer_image;
     	}
