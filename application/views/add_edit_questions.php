@@ -53,7 +53,7 @@
                         <form id = "form-<?php echo $question_id ?>" action="../ajax/edit_questions" method="post">
                         	<input type="hidden" name="id" value = "<?php echo $question_id ?>">
                         	<input type="hidden" name="chapter" value = "<?php echo $row->chapter ?>">
-	                        <p><textarea type="text" name="questions" rows="3" cols="120"><?php echo $row->question?></textarea></p>
+	                        <p><textarea type="text" name="questions" rows="3" cols="120" class="question-field"><?php echo $row->question?></textarea></p>
 	                        <p><b>Question Image: </b>
 	                        	<input type="file" name="question-image-<?php echo $question_id ?>[]" id="question-image-<?php echo $question_id ?>-1" multiple>
 	                        </p>
