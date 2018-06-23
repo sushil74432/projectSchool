@@ -65,7 +65,7 @@ class AjaxController extends CI_Controller{
 			    }
 			  }
 			}
-			$question_images = implode(',', $question_image_list);
+			$question_images = implode(';;;', $question_image_list);
 			//var_dump($question_image_list);
 
 		// Upload question images ends
@@ -77,7 +77,7 @@ class AjaxController extends CI_Controller{
 	    		$i++;
 	    	}
 	    	// var_dump($options_text_list);
-	    	$answers = implode(',', $options_text_list);
+	    	$answers = implode(';;;', $options_text_list);
 	    	$correct_answer_text = trim($this->input->post('correct-answer-text-'.$id, TRUE));
 	    	$correct_answer = $correct_answer_text;
 	    	//var_dump($correct_answer_text);
