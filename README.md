@@ -1,2 +1,2 @@
 # projectSchool
-Work on digitization of class 7 and 8 maths course
+Work on digitization of class 7 and 8 maths course based on CI.
